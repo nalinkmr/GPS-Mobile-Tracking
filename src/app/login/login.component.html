@@ -4,30 +4,53 @@
         <div class="card">
           <div class="card-header">
             <h3>Log-In</h3>
-  
           </div>
+          
+          <div class="loader" *ngIf="dataLoading"></div>
+
+          <div class="alert alert-danger" *ngIf="error">
+            An Error occured. {{ errorMessage }}
+          </div>
+
+
           <div class="card-body">
-            <form class="form-signin">
+
+            <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
               <div class="input-group form-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" id="inputEmail" class="form-control" placeholder="Enter@Email">
+                <input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="enter e-mail" #inputEmail="ngModel" required email ngModel>
                 
               </div>
+              
+              <div class="alert alert-danger" role="alert" *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
+                  Enter valid email !
+              </div>
+
               <div class="input-group form-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fa fa-key"></i></span>
                 </div>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                <input type="password" name="inputPassword" #inputPassword="ngModel" id="inputPassword" class="form-control" placeholder="password" required ngModel> 
               </div>
               <!-- <div class="row align-items-center remember">
                 <input type="checkbox">Remember Me
               </div> -->
+              <div *ngIf="!loginForm.valid else showSubmitButton">
+                  <button class="btn btn-block btn-lg" type="submit" disabled>login</button>
+              </div>
+
+              <ng-template #showSubmitButton>
+                  <button class="btn btn-block btn-lg btn-primary" type="submit">login</button>
+              </ng-template>
+              <br/>
               <div class="form-group">
-                <input type="submit" value="Login" class="btn float-right login_btn">
+                <!-- <input type="submit" value="Create Account" class="btn btn-lg login_btn" routerLink="/signup"> -->
+                <button class="btn btn-block btn-lg" type="submit" routerLink="/signup">create account</button>
               </div>
             </form>
+
           </div>
   
         </div>

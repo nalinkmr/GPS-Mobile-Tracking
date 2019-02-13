@@ -14,8 +14,6 @@ export class SignupComponent implements OnInit, OnDestroy {
   dataLoading: boolean = false;
   private querySubscription;
   savedChanges:boolean = false;
-
-
   constructor(private _backendService: BackendService,private _route:Router) { }
 
   ngOnInit() {
@@ -25,15 +23,15 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.dataLoading = true;
     
     this.querySubscription = this._backendService.setUser(formData).subscribe(
-      (res) => {
-        if(res["errorCode"]>0){
+      (result) => {
+        if(result["errorCode"]>0){
           this.error = false;
           this.errorMessage = "";
           this.dataLoading = false;
           this.savedChanges = true;
         }else{
           this.error = true;
-          this.errorMessage= res["errorCode"];
+          this.errorMessage= result["errorCode"];
           this.dataLoading = false;
         }
       },
