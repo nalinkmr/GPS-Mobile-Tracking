@@ -1,34 +1,58 @@
-  <div class="container">
-      <div class="d-flex justify-content-center h-100">
-        <div class="card">
-          <div class="card-header">
-            <h3>Sign-In</h3>
-  
-          </div>
-          <div class="card-body">
-            <form class="form-signin">
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-user"></i></span>
-                </div>
-                <input type="text" id="inputEmail" class="form-control" placeholder="enter e-mail">
-                
-              </div>
-              <div class="input-group form-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-key"></i></span>
-                </div>
-                <input type="password" id="inputPassword" class="form-control" placeholder="password">
-              </div>
-              <!-- <div class="row align-items-center remember">
-                <input type="checkbox">Remember Me
-              </div> -->
-              <div class="form-group">
-                <button class="btn btn-lg  btn-block" type="submit">NEW-ACCOUNT</button>
-              </div>
-            </form>
-          </div>
-  
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>CreateAccount</h3>
+        <br />
+        <!-- this div will show loader untill data get loaded -->
+        <div class="spinner-border text-secondary" *ngIf="dataLoading"></div>
+        
+        <!-- this div will show error message -->
+        <div class="alert alert-danger" *ngIf="error">
+          AN Error occured. {{ errorMessage }}
+        </div>
+        <div *ngIf="savedChanges else showForm">
+          New Account is created please press the bell icon.
+          <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">bell</button>
         </div>
       </div>
+      <ng-template #showForm>
+          <div class="card-body">
+              <!-- form for signup -->
+              <form class="form-signin" #newUserForm="ngForm" (ngSubmit)="setUser(newUserForm.value)">
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                  </div>
+                  <input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="enter e-mail" #inputEmail="ngModel" required email ngModel>
+                  
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
+                    Enter valid email !
+                </div>
+                
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                  </div>
+                  <input type="password" name="inputPassword" #inputPassword="ngModel" id="inputPassword" class="form-control" placeholder="password" required ngModel> 
+                </div>
+                <div *ngIf="!newUserForm.valid else showSubmitButton">
+                  <button class="btn btn-block btn-lg" type="submit" disabled>signup</button>
+                </div>
+
+                <ng-template #showSubmitButton>
+                    <button class="btn btn-block btn-primary btn-lg" type="submit">signup</button>
+                  </ng-template> 
+                  <br/>
+                <div class="form-group">
+                  <button class="btn btn-lg  btn-block" type="submit" routerLink="/login">LOGIN</button>
+                </div>
+              </form>
+            </div>
+      </ng-template>
+
     </div>
+  </div>
+</div>

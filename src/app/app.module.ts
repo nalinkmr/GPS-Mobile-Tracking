@@ -12,6 +12,8 @@ import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SignupComponent } from './signup/signup.component';
 import { NewcomponentComponent } from './newcomponent/newcomponent.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NewcomponentComponent } from './newcomponent/newcomponent.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
