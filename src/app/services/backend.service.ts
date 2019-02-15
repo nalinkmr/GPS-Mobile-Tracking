@@ -23,19 +23,20 @@ export class BackendService {
       "errorMessage" : "error while creating user",
       "rowCount" : "30",
       "data":{
-        "token" : "eror"
+        "token" : "login"
       }
     };
 
     return Observable.create(
       observer => {
         setTimeout(() => {
-          observer.next(fakeResponse_1)
+          observer.next(fakeResponse_3)
         }, 2000);
       }
     )
   }
 
+// login Service
 
   login(formData){
     let fakeResponse_1 = {
@@ -69,7 +70,41 @@ export class BackendService {
       observer => {
         setTimeout(() => {
           observer.next(fakeResponse_3)
-        }, 2000);
+        }, 200);
+      }
+    )
+  }
+
+
+  setLocation(formData){
+      // console.log(formData);
+  }
+
+  getUserLocation(){
+    
+    let fakeResponse_3 = {
+      "errorCode" : "1",
+      "errorMessage" : "",
+      "rowCount" : "30",
+      "data":[{
+        "email" : "eror",
+        "lat" : 'some',
+        "long":'long',
+        "createdAt":"sep 24 10:00:00 pm"
+      },
+      {"email" : "eror",
+        "lat" : 'something',
+        "long":'longitute',
+        "createdAt":"sep 27 10:00:00 pm"
+    }
+    ]
+    };
+
+    return Observable.create(
+      observer => {
+        setTimeout(() => {
+          observer.next(fakeResponse_3)
+        }, 200);
       }
     )
   }

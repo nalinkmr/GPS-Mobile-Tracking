@@ -1,8 +1,8 @@
 <div class="container">
   <div class="d-flex justify-content-center h-100">
-    <div class="card">
-      <div class="card-header">
-        <h3>CreateAccount</h3>
+    <div class="card" style="margin-top: 2rem !important;">
+      <div class="card-header" style="text-align: center !important;">
+        <h3><b>CREATE ACCOUNT</b></h3>
         <br />
         <!-- this div will show loader untill data get loaded -->
         <div class="loader" *ngIf="dataLoading"></div>
@@ -11,10 +11,12 @@
         <div class="alert alert-danger" *ngIf="error">
           An Error occured. {{ errorMessage }}
         </div>
+
         <div *ngIf="savedChanges else showForm">
           New Account is created please press the bell icon.
-          <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">bell</button>
+          <button class="btn btn-lg btn-primary btn-block" routerLink="/login" type="button">Account has been created!</button>
         </div>
+
       </div>
       <ng-template #showForm>
           <div class="card-body">
@@ -22,7 +24,7 @@
               <form class="form-signin" #newUserForm="ngForm" (ngSubmit)="setUser(newUserForm.value)">
                 <div class="input-group form-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    <span class="input-group-text" style=""><i class="fa fa-user"></i></span>
                   </div>
                   <input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="enter e-mail" #inputEmail="ngModel" required email ngModel>
                   
@@ -40,11 +42,11 @@
                 </div>
 
                 <div *ngIf="!newUserForm.valid else showSubmitButton">
-                  <button class="btn btn-block btn-lg" type="submit" disabled>signup</button>
+                  <button class="btn btn-block btn-lg" type="submit" disabled>SINGUP</button>
                 </div>
 
                 <ng-template #showSubmitButton>
-                    <button class="btn btn-block btn-primary btn-lg" type="submit">signup</button>
+                    <button class="btn btn-block btn-primary btn-lg addBg" type="submit">SINGUP</button>
                 </ng-template> 
                 
                   <br/>

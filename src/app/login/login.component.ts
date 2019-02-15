@@ -7,6 +7,7 @@ import { BackendService } from '../services/backend.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit , OnDestroy {
   error : boolean = false;
   errorMessage : string = "";

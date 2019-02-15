@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="d-flex justify-content-center h-100">
       <div class="card">
         <div class="card-header">
@@ -7,5 +7,32 @@
         </div>  
       </div>
     </div>
-  </div>
+  </div> -->
   
+  <div class="alert alert-light" style="background-color: #6b53c94d !important;" role="alert">
+    <div class="row">
+        <div class="col" style="text-align:left;">
+            <span class="displayName">Welcome User !</span>
+        </div>
+        <div class="col" style="text-align:right;">
+            <button type="button" class="btn btn-danger" routerLink="/settings">logout</button>
+        </div>
+    </div>
+  </div>
+      
+  <div class="col-md-12">
+    <div class="row">
+      <!-- <div class="col"></div>
+      <div class="col" style="text-align:right;">
+        <button type="button" class="btn btn-success" routerLink="/dashboard">AGREE</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-danger" routerLink="/settings">DENY</button>
+      </div>
+      <div class="col"></div> -->
+      <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" routerLink="/dashboard">AGREE</button>
+          <button type="button" class="btn btn-secondary" routerLink="/settings">DENY</button>
+      </div>
+    </div>
+  </div>

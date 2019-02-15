@@ -10,7 +10,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/aboutus',pathMatch: 'full' },
+  {path:'',redirectTo:'/signup',pathMatch: 'full' },
   {path:'login',component: LoginComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'aboutus',component:AboutusComponent},
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'report',component:ReportComponent},
   {path:'settings',component:SettingsComponent},
   {path:'signup',component:SignupComponent},
-  {path:'**',redirectTo:'/aboutus',pathMatch:'full'}
+  {path:'**',redirectTo:'/signup',pathMatch:'full'}
 ];
 
 @NgModule({

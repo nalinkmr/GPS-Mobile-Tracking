@@ -1,11 +1,22 @@
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
-          <h3>report works!</h3>
-        </div>
+<div class="loader" *ngIf="dataLoading"></div>
+<div class="alert alert-danger" role="alert" *ngIf="error">
+  An Error occured.  Here is the error message {{errorMessage}}
+</div>
 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Date/Time</th>
+      <th scope="col">Name</th>
+      <th scope="col">LONGITUDE/LATITUDE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let iteration of mysavedData">
+      <th scope="row">{{iteration.createdAt}}</th>
+      <td>{{iteration.email}}</td>
+      <td>{{iteration.lat}}</td>
+    </tr>
 
-      </div>
-    </div>
-  </div>
+  </tbody>
+</table>
