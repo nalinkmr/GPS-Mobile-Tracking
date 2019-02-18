@@ -53,7 +53,7 @@ export class BackendService {
       "errorMessage" : "passowrd is not valid",
       "rowCount" : "30",
       "data":{
-        "token" : "eror"
+        "token" : "abcd"
       }
     };
 
@@ -62,7 +62,7 @@ export class BackendService {
       "errorMessage" : "authentication succesfull",
       "rowCount" : "30",
       "data":{
-        "token" : "eror"
+        "token" : "abcd"
       }
     };
 
@@ -98,6 +98,51 @@ export class BackendService {
         "createdAt":"sep 27 10:00:00 pm"
     }
     ]
+    };
+
+    return Observable.create(
+      observer => {
+        setTimeout(() => {
+          observer.next(fakeResponse_3)
+        }, 200);
+      }
+    )
+  }
+
+
+  getUser(){
+    
+    let fakeResponse_3 = {
+      "errorCode" : "1",
+      "errorMessage" : "",
+      "rowCount" : "30",
+      "data":{
+        "inputEmail" : " nalinkmr@gmail.com",
+        "inputPassword" : "password",
+        "question" : "Question",
+        "answer" : "Answer"
+      }
+    };
+
+    return Observable.create(
+      observer => {
+        setTimeout(() => {
+          observer.next(fakeResponse_3)
+        }, 200);
+      }
+    )
+  }
+
+
+  updateUser(formData){
+    
+    let fakeResponse_3 = {
+      "errorCode" : "1",
+      "errorMessage" : "",
+      "rowCount" : "30",
+      "data":{
+        "token" : "abcd",
+      }
     };
 
     return Observable.create(

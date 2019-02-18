@@ -1,11 +1,66 @@
+<div class="col" style="text-align:right;">
+  <button type="button" class="btn btn-danger" (click)="logout();">logout</button>
+</div>
 <div class="container">
-    <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
-          <h3>setting works!</h3>
+  <div class="d-flex justify-content-center h-100">
+    <div class="card" style="margin-top: 2rem !important;">
+      <div class="card-header" style="text-align: center !important;">
+        <h3><b>SETTINGS</b></h3>
+        
+        <br />
+        <!-- this div will show loader untill data get loaded -->
+        <div class="loader" *ngIf="dataLoading"></div>
+        
+        <!-- this div will show error message -->
+        <div class="alert alert-danger" *ngIf="error">
+          An Error occured. {{ errorMessage }}
         </div>
 
+        <div *ngIf="savedChanges else showForm">
+           your changes saved !
+          <button class="btn btn-lg btn-primary btn-block" (click)="savedChanges=!savedChanges; getData();" type="button">close</button>
+        </div>
 
       </div>
+      <ng-template #showForm>
+          <div class="card-body">
+              <!-- form for signup -->
+              <form class="form-signin" #settingsForm="ngForm" (ngSubmit)="settings(settingsForm.value)">
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style=""><i class="fa fa-user"></i></span>
+                  </div>
+                  <input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="enter e-mail" #inputEmail="ngModel" required email ngModel>
+                  
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
+                    Enter valid email !
+                </div>
+                
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                  </div>
+                  <input type="password" name="inputPassword" #inputPassword="ngModel" id="inputPassword" class="form-control" placeholder="password" required ngModel> 
+                </div>
+
+                <div *ngIf="!settingsForm.valid else showSubmitButton">
+                  <button class="btn btn-block btn-lg" type="submit" disabled>SINGUP</button>
+                </div>
+
+                <ng-template #showSubmitButton>
+                    <button class="btn btn-block btn-primary btn-lg addBg" type="submit">SINGUP</button>
+                </ng-template> 
+                
+                  <br/>
+                <div class="form-group">
+                  <button class="btn btn-lg  btn-block" type="submit" routerLink="/login">LOGIN</button>
+                </div>
+              </form>
+            </div>
+      </ng-template>
+
     </div>
   </div>
+</div>

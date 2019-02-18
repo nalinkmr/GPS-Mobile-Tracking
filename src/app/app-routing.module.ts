@@ -8,18 +8,19 @@ import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/signup',pathMatch: 'full' },
+  {path:'',redirectTo:'/login',pathMatch: 'full' },
   {path:'login',component: LoginComponent},
-  {path:'dashboard',component:DashboardComponent},
-  {path:'aboutus',component:AboutusComponent},
+  {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuardService]},
+  {path:'aboutus',component:AboutusComponent,canActivate:[AuthGuardService]},
   {path:'footer',component:FooterComponent},
   {path:'header',component:HeaderComponent},
-  {path:'report',component:ReportComponent},
-  {path:'settings',component:SettingsComponent},
+  {path:'report',component:ReportComponent,canActivate:[AuthGuardService]},
+  {path:'settings',component:SettingsComponent,canActivate:[AuthGuardService]},
   {path:'signup',component:SignupComponent},
-  {path:'**',redirectTo:'/signup',pathMatch:'full'}
+  {path:'**',redirectTo:'/login',pathMatch:'full'}
 ];
 
 @NgModule({
