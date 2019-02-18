@@ -16,16 +16,16 @@ export class LoginComponent implements OnInit , OnDestroy {
 
   login(formData){
     this.querySubscription = this._backendService.login(formData).subscribe(
-      (result) => {
-        if(result["errorCode"]>0){
+      (res) => {
+        if(res["errorCode"]>0){
           this.error = false;
           this.errorMessage = "";
           this.dataLoading = false;
-          window.localStorage.setItem('token',result["data"].token);
-          this._route.navigate(['/aboutus']);
+          window.localStorage.setItem('token',res["data"].token);
+          this._route.navigate(['/report']);  // to navigate if user press submit button.
         }else{
           this.error = true;
-          this.errorMessage= result["errorMessage"];
+          this.errorMessage= res["errorMessage"];
           this.dataLoading = false;
         }
       },

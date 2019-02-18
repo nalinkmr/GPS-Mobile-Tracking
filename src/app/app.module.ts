@@ -11,7 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SignupComponent } from './signup/signup.component';
-import { NewcomponentComponent } from './newcomponent/newcomponent.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -25,8 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     ReportComponent,
     SettingsComponent,
-    SignupComponent,
-    NewcomponentComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,

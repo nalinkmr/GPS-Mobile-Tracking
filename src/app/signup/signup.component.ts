@@ -23,15 +23,15 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.dataLoading = true;
     
     this.querySubscription = this._backendService.setUser(formData).subscribe(
-      (result) => {
-        if(result["errorCode"]>0){
+      (res) => {
+        if(res["errorCode"]>0){
           this.error = false;
           this.errorMessage = "";
           this.dataLoading = false;
           this.savedChanges = true;
         }else{
           this.error = true;
-          this.errorMessage= result["errorCode"];
+          this.errorMessage= res["errorCode"];
           this.dataLoading = false;
         }
       },

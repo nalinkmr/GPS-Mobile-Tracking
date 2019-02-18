@@ -3,20 +3,73 @@
   An Error occured.  Here is the error message {{errorMessage}}
 </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Date/Time</th>
-      <th scope="col">Name</th>
-      <th scope="col">LONGITUDE/LATITUDE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let iteration of mysavedData">
-      <th scope="row">{{iteration.createdAt}}</th>
-      <td>{{iteration.email}}</td>
-      <td>{{iteration.lat}}</td>
-    </tr>
+<div class="container-fluid con">
+  <div class="row">
+    <div class="col-md-5 col-sm-12 pad"><img  src="../../assets/images/icons/log_Dcafe.png" width="12%"><span class="spa">DESIGNCAFE</span></div>
+    <div class="col-md-7 col-sm-12"></div>
+    <hr class="hr">
+  </div>
+  <div class="row">
+  
+    <div class="col-md-4 col-sm-12 rr">
+      <div class="form-group has-search">
+         <span class="fa fa-search form-control-feedback fu"></span>
+         <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </div>
+    
+    <div class="col-md-4 col-sm-12">
+       <div class="form-group has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" placeholder="Search">
+       </div>
+    </div>
+    
+    <div class="col-md-4 col-sm-12"></div>
+    
+    
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mm">
+      <ul class="center">
+         <li class="li hover" type="button" routerLink="/aboutus">About us</li>
+         <li class="li hover" routerLink="/settings">Setting</li>
+         <!-- <li class="li hover" routerLink="/signup">Sign up</li>
+         <li class="li hover" routerLink="/login">Login</li> -->
+         <li class="li hover" routerLink="/Dashboard">Dashboard</li>
+          <hr class="hrr">
+      </ul>
+      
+    
+    </div>
+    <div class="col-md-8 col-sm-12">
+       <div class="container">            
+        <table class="table">
+            <thead>
+              <tr>
+               <th class="co th thh">Order</th>
+               <th class="th thh">Customer Name</th>
+               <th class="th thh">Date/Time</th>
+               <th class="th thh">Latitude</th>
+               <th class="th thh">Longitude</th>
+             </tr>
+           </thead>
+           <tbody>
+              <tr *ngFor="let iteration of mysavedData">
+                <td class="co">#7777</td>
+                 <td class="bo">{{iteration.email}}</td>
+                 <td class="bo">{{iteration.createdAt}}</td>
+                 <td class="bo">{{iteration.lat}}</td>
+                 <td class="bo">{{iteration.long}}</td>
+              </tr>
+              
+           </tbody>
+     </table>
+    </div>
+                 
+    </div>
+  </div>
+  
 
-  </tbody>
-</table>
+</div>

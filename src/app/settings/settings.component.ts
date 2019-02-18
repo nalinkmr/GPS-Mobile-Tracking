@@ -72,6 +72,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
     );
   }
 
+  logout(){
+    window.localStorage.clear();
+    window.location.href = '\aboutus';
+    
+  }
+
   ngOnDestroy(){
     if(this.querySubscription){
       this.querySubscription.unsubscribe();

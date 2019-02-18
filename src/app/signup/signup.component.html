@@ -24,7 +24,7 @@
               <form class="form-signin" #newUserForm="ngForm" (ngSubmit)="setUser(newUserForm.value)">
                 <div class="input-group form-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" style=""><i class="fa fa-user"></i></span>
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
                   </div>
                   <input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="enter e-mail" #inputEmail="ngModel" required email ngModel>
                   
@@ -51,7 +51,7 @@
                 
                   <br/>
                 <div class="form-group">
-                  <button class="btn btn-lg  btn-block" type="submit" routerLink="/login">LOGIN</button>
+                  <button style="background-color: #7fffd4cc !important;" class="btn btn-lg  btn-block" type="submit" routerLink="/login">LOGIN</button>
                 </div>
               </form>
             </div>
@@ -60,3 +60,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>
